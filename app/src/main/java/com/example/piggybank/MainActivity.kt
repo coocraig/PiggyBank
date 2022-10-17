@@ -3,6 +3,8 @@ package com.example.piggybank
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.piggybank.databinding.ActivityMainBinding
 import java.text.DateFormat
 import java.text.NumberFormat
@@ -17,10 +19,13 @@ class MainActivity : AppCompatActivity() {
 
 
     //Creats list of transactions
-    public var transactions = ArrayList<String>()
+    private lateinit var transactions : ArrayList<String>
 
     //Instantiating of binding variables
     private lateinit var binding: ActivityMainBinding
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var transactionAdapter: TransactionAdapter
+
 
     //Beginning the total at 0
     private var currentTotal = 0.0
@@ -31,6 +36,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        recyclerView = findViewById(R.id.recycleView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        transactions = ArrayList()
+
+        //transactions.add("Beginning")
+
+
+
+        transactionAdapter = TransactionAdapter(transactions)
+        recyclerView.adapter = transactionAdapter
+
 
         binding.button.setOnClickListener{ deposit()}
 
@@ -52,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //Adding the number to an arraylist of strings to be in the recycler view
-        transactions.add("$formattedDeposit $formattedDate")
+        transactions.add("$formattedDeposit on $formattedDate")
         //myAdapter.notifyDataSetChanged()
 
         //Adds the deposit to the current total
