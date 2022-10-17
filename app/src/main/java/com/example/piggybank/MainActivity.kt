@@ -38,14 +38,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         recyclerView = findViewById(R.id.recycleView)
-        recyclerView.setHasFixedSize(true)
+        recyclerView.setHasFixedSize(false)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         transactions = ArrayList()
 
         //transactions.add("Beginning")
-
-
 
         transactionAdapter = TransactionAdapter(transactions)
         recyclerView.adapter = transactionAdapter
@@ -81,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         val newTotal = NumberFormat.getCurrencyInstance().format(currentTotal)
 
         //Clearing the text field
-        binding.editTextNumber.text.clear()
+        binding.editTextNumber.text?.clear()
 
         //Sets the text of the total to the formatted new total
         binding.total.text = newTotal

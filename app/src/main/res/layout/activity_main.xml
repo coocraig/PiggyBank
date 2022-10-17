@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073"
+        app:layout_constraintVertical_bias="0.032"
         app:srcCompat="@drawable/imgbin_png"
         tools:srcCompat="@drawable/imgbin_png" />
 
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="$0.00"
-        android:textSize="35sp"
+        android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,49 +34,75 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
 
+        android:layout_marginTop="30dp"
         android:text="Deposit History"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/total"
-        app:layout_constraintVertical_bias="0.353" />
+        app:layout_constraintVertical_bias="0.421" />
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+<!--    <EditText-->
+<!--        android:id="@+id/editTextNumber"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="88dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Enter Deposit Amount"-->
+<!--        android:inputType="number"-->
+<!--        android:minHeight="48dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/total" />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textNumber"
+        android:layout_width="215dp"
+        android:layout_height="54dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
+        android:layout_marginTop="50dp"
         android:hint="Enter Deposit Amount"
-        android:inputType="number"
-        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total" />
+        app:layout_constraintTop_toBottomOf="@id/total"
+        app:layout_goneMarginStart="16dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="4dp"
         android:text="Deposit"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumber" />
+        app:layout_constraintStart_toEndOf="@+id/textNumber"
+        app:layout_constraintTop_toTopOf="@+id/textNumber" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="409dp"
-        android:layout_height="208dp"
+        android:layout_height="180dp"
         android:clipChildren="false"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="1.0" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
